@@ -22,7 +22,7 @@ const Header = () => {
 		);
 	}
 	return (
-		<header className="flex gap-2 flex-wrap justify-center sm:justify-between items-center text-white bg-gray-600 p-3 sticky top-0 z-10">
+		<header className="flex gap-2 flex-wrap justify-center sm:justify-between items-center text-white bg-gray-600 px-3 py-5 sticky top-0 z-10">
 			<Link to="/" className="text-2xl font-bold">
 				IMDB
 			</Link>

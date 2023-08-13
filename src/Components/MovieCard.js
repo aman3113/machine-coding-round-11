@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
+import { AiFillDelete } from "react-icons/ai";
 import { MovieContext } from "../Context/MovieContext";
 import { useToast } from "@chakra-ui/react";
 
@@ -26,20 +27,31 @@ const MovieCard = ({ movie }) => {
 					{rating} <AiFillStar size={20} />
 				</span>
 			</Link>
-			<p className="text-lg font-bold text-center">{title}</p>
+			<div className="flex justify-between">
+				<p className="text-lg font-bold text-center">{title}</p>
+				<span
+					className=" bg-white text-gray-700 p-1 rounded-sm cursor-pointer"
+					onClick={() => dispatch({ type: "DELETE ITEM", payload: id })}
+				>
+					<AiFillDelete size={20} />
+				</span>
+			</div>
 			<p className="text-center">{summary}</p>
-			<div className={`flex justify-between p-3 `}>
+			<div className={`flex justify-between p-3 gap-3 `}>
 				{pathname.includes("starred") ? (
 					<button
 						onClick={() =>
 							dispatch({ type: "REMOVE FROM STARRED", payload: id })
 						}
+						className="button"
 					>
-						Remove From Starred
+						Remove Starred
 					</button>
 				) : addedToStarred ? (
 					<Link to="/starred">
-						<button className="button">Starred</button>
+						<button className="bg-green-400 px-3 py-1 rounded-md cursor-pointer">
+							Starred
+						</button>
 					</Link>
 				) : (
 					<button
@@ -55,12 +67,15 @@ const MovieCard = ({ movie }) => {
 						onClick={() =>
 							dispatch({ type: "REMOVE FROM WATCHLATER", payload: id })
 						}
+						className="button"
 					>
-						Remove From Watch Later
+						Remove Watch Later
 					</button>
 				) : addedToWatchLater ? (
 					<Link to="/watchlater">
-						<button className="button">Added To WatchLater</button>
+						<button className="bg-green-400 px-3 py-1 rounded-md cursor-pointer">
+							Added To WatchLater
+						</button>
 					</Link>
 				) : (
 					<button

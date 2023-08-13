@@ -40,7 +40,7 @@ const MovieList = () => {
 	return (
 		<div>
 			<nav className="flex flex-wrap justify-between gap-2 p-3">
-				<span className="text-xl font-bold">Movies</span>
+				<span className="text-3xl font-bold">Movies</span>
 				<select
 					onChange={(e) =>
 						setFilters((prev) => ({

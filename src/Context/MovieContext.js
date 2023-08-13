@@ -54,6 +54,12 @@ function Reducer(state, action) {
 				),
 			};
 
+		case "DELETE ITEM":
+			return {
+				...state,
+				moviesArr: state.moviesArr.filter((movie) => movie.id !== payload),
+			};
+
 		default:
 			return state;
 	}
